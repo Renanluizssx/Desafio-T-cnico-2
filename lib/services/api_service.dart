@@ -33,7 +33,6 @@ class ApiService {
       File file = File(filePath);
       await file.writeAsBytes(response.bodyBytes);
 
-      // O arquivo foi baixado e salvo no dispositivo
       print('Livro baixado e salvo em: $filePath');
     } else {
       throw Exception('Falha ao baixar o livro');

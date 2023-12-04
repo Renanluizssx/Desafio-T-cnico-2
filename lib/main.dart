@@ -1,8 +1,6 @@
-// main.dart
-
 import 'package:flutter/material.dart';
-import 'services/api_service.dart' as api; // Adicione 'as api'
-import 'book/book.dart' as mybook; // Adicione 'as mybook'
+import 'services/api_service.dart' as api;
+import 'book/book.dart' as mybook;
 
 class BookListScreen extends StatefulWidget {
   @override
@@ -12,8 +10,7 @@ class BookListScreen extends StatefulWidget {
 class _BookListScreenState extends State<BookListScreen> {
   final api.ApiService apiService =
       api.ApiService("https://escribo.com/books.json");
-  late Future<List<mybook.Book>>
-      books; // Use 'mybook.Book' para evitar conflitos
+  late Future<List<mybook.Book>> books;
 
   @override
   void initState() {
@@ -28,7 +25,6 @@ class _BookListScreenState extends State<BookListScreen> {
         title: Text('Estante Virtual'),
       ),
       body: FutureBuilder<List<mybook.Book>>(
-        // Use 'mybook.Book' novamente aqui
         future: books,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -55,7 +51,6 @@ class _BookListScreenState extends State<BookListScreen> {
   }
 
   Widget _buildBookTile(mybook.Book book) {
-    // Use 'mybook.Book' novamente aqui
     return Card(
       child: Column(
         children: [
